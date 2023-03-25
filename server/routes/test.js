@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
-  res.send('/test 접근 성공');
+  res.send({test:"hi"});
 })
 
 module.exports = router
