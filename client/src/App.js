@@ -3,8 +3,8 @@ import { useEffect } from "react";
 
 import './App.css';
 
-import Title from './components/Title';
-import Form from './components/Form';
+// import Title from './components/Title';
+// import Form from './components/Form';
 function App() {
   const callApi = async()=>{
     axios.get("/api").then((res)=>{console.log(res.data.test)});
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="App">
-      <Title />
+      test
     </div>
       
   );
