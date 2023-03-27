@@ -1,27 +1,33 @@
 // import axios from "axios";
 // import { useEffect } from "react";
+import React from 'react';
 
+import { BrowserRouter ,Route, Routes} from 'react-router-dom';
 import './App.css';
+// import LoginForm from './routes/LoginForm';
+import Test from './components/Title'
+import Login from './routes/Login';
+import Register from './routes/Register';
+import Error from './routes/Error';
 
 
 
 // practice react
-// import ClassState from './components/ClassState';
-import StateAndVariable from './components/StateAndVariable';
-
-// react + express
 
 function App() {
-  // const callApi = async()=>{
-  //   axios.get("/api").then((res)=>{console.log(res.data.test)});
-  // };
 
-  // useEffect(()=>{
-  //   callApi();
-  // }, []);
   return (
     <div className="App">
-      <StateAndVariable />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/test" element={<Test/>}></Route>
+
+          <Route path="/" element={<Login/>}></Route>
+          <Route path="/register" element={<Register/>}></Route>
+          <Route path="*" element={<Error/>}></Route>
+        </Routes>
+      </BrowserRouter>
+        {/* <Test/> */}
     </div>
   );
 }
