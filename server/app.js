@@ -4,7 +4,7 @@ const app = express();
 
 const testRouter = require('./routes/test');
 
-const PORT = 4000;
+const PORT = 8001;
 
 app.use('/api', testRouter);
 
