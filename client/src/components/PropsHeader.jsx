@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function PropsHeader({text}) {
+export default function PropsHeader(props) {
   return (
-    <h1>{text}</h1>
+    <h1>{props.nick}</h1>
   )
 }
