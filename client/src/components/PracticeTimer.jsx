@@ -13,7 +13,7 @@ export default function PracticeTimer() {
     return () => {
       clearInterval(timer);
     };
-  }, []);
+  }, [count]);
   return (
     <>
       <h1>{count.current}</h1>
