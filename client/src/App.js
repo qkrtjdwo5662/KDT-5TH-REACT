@@ -1,60 +1,22 @@
-// import axios from "axios";
-// import { useEffect } from "react";
 import React from 'react';
-import logo from './logo.svg';
-import styled, { keyframes } from 'styled-components';
-import TestStyled from './components/TestStyled';
+import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import Board from './routes/Board';
+import Profile from './routes/Profile';
+import Header from './routes/Header';
+import Error from './routes/Error';
+import BoardDetail from './components/BoardDetail';
 // practice react
-
-const RootDiv = styled.div`
-  text-align: center;
-`;
-const AppHeader = styled.header`
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-`;
-
-const appLogoSpin = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-  transform: rotate(360deg);
-}
-`;
-
-const AppLogo = styled.img`
-  height: 40vmin;
-  pointer-events: none;
-  animation: ${appLogoSpin} infinite 20s linear;
-`;
-
-const AppLink = styled.a`
-  color: #61dafb;
-`;
 
 function App() {
   return (
-    <RootDiv>
-      <AppHeader>
-        <AppLogo src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.{' '}
-        </p>
-        <AppLink
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        ></AppLink>
-      </AppHeader>
-    </RootDiv>
+    <Routes>
+      <Route path="/" element={<Header />}></Route>
+      <Route path="/board" element={<Board />}></Route>
+      <Route path="/profile" element={<Profile />}></Route>
+      <Route path="/board/:boardID" element={<BoardDetail />}></Route>
+      <Route path="*" element={<Error />}></Route>
+    </Routes>
   );
 }
 export default App;
