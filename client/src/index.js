@@ -4,23 +4,22 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
-import combineReducer from './store';
+import { configureStore } from '@reduxjs/toolkit';
+import rootReducer from './store';
+import { Provider } from 'react-redux';
 
 const reduxDevTool =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const rootReducer = createStore(combineReducer, reduxDevTool);
-console.log(rootReducer);
+const store = configureStore({ reducer: rootReducer }, reduxDevTool);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
   // Provider store 설정
   <BrowserRouter>
-    <Provider store={rootReducer}>
+    <Provider store={store}>
       <App />
     </Provider>
   </BrowserRouter>,

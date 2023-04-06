@@ -1,27 +1,27 @@
 import React from 'react';
-import './App.css';
-import { Route, Routes } from 'react-router-dom';
-import Board from './routes/Board';
-import Profile from './routes/Profile';
-import Header from './routes/Header';
-import Error from './routes/Error';
-import BoardDetail from './components/BoardDetail';
+import Start from './mbti_components/Start';
+import styled from 'styled-components';
+import GlobalStyle from './mbti_components/GlobalStyle';
+import { useSelector } from 'react-redux';
+import Mbti from './mbti_components/Mbti';
 
-import PracticeRedux from './components/PracticeRedux';
-import ListContainer from './components/ListContainer';
-// practice react
+const Main = styled.main`
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px;
+  padding: 0 35px;
+  margin: auto;
+  text-align: center;
+`;
 
 function App() {
+  const page = useSelector((state) => state.mbti.page);
+  console.log(page);
   return (
-    <Routes>
-      <Route path="/" element={<Header />}></Route>
-      <Route path="/board" element={<Board />}></Route>
-      <Route path="/profile" element={<Profile />}></Route>
-      <Route path="/board/:boardID" element={<BoardDetail />}></Route>
-      <Route path="/test" element={<PracticeRedux />}></Route>
-      <Route path="/todo" element={<ListContainer />}></Route>
-      <Route path="*" element={<Error />}></Route>
-    </Routes>
+    <>
+      <GlobalStyle />
+      <Main>{page === 0 ? <Start /> : <Mbti />}</Main>
+    </>
   );
 }
 export default App;
