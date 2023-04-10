@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'ARCHISCULPTURE_v200';
     padding-top: 1em;
     white-space: pre-wrap;
+    text-align: center;
   }
   ul, ol {
     list-style: none; 
