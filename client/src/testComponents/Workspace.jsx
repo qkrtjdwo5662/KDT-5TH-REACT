@@ -26,42 +26,92 @@ export default function Workspace() {
   return (
     <>
       <h1>workspace</h1>
+      <div></div>
       <ul>
         {dataArr.map((el, idx) => (
           <div key={idx}>
-            <li>_id : {el._id}</li>
-            <ul>
-              <li>name : {el.workspace_name}</li>
-              <li>category : {el.workspace_category}</li>
-              <li>startDate : {el.workspace_startDate}</li>
-              <li>endDate : {el.workspace_endDate}</li>
-              <li>gitHub : {el.githubRepository}</li>
-              <li>
-                member
-                <ul>
-                  {el.member.map((el, idx) => (
+            <li>
+              workspace{idx}
+              <ul>
+                <li>_id : {el._id}</li>
+                <li>name : {el.workspace_name}</li>
+                <li>category : {el.workspace_category}</li>
+                <li>startDate : {el.workspace_startDate}</li>
+                <li>endDate : {el.workspace_endDate}</li>
+                <li>gitHub : {el.githubRepository}</li>
+                <li>
+                  member
+                  <ul>
+                    {el.member.map((el, idx) => (
+                      <li key={idx}>
+                        member{idx} : {el}
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+                <li>
+                  workflow
+                  <ul>
                     <li>
-                      member{idx} : {el}
-                    </li>
-                  ))}
-                </ul>
-              </li>
-              <li>
-                workflow
-                <ul>
-                  {el.workflow.map((el, idx) => (
-                    <li>
-                      workflow{idx}
+                      todoList
                       <ul>
-                        <li>name: {el.name}</li>
-                        <li>startDate: {el.startDate}</li>
-                        <li>endDate: {el.endDate}</li>
+                        {el.workflow.todoList.map((el, idx) => (
+                          <li key={idx}>
+                            todoList{idx}
+                            <ul>
+                              <li>todoList content: {el.content}</li>
+                              <li>todoList createDate: {el.createDate}</li>
+                              <li>todoList endDate: {el.endDate}</li>
+                              <li>todoList importance: {el.importance}</li>
+                            </ul>
+                          </li>
+                        ))}
                       </ul>
                     </li>
-                  ))}
-                </ul>
-              </li>
-            </ul>
+                  </ul>
+                  <ul>
+                    <li>
+                      inprogressList
+                      <ul>
+                        {el.workflow.inprogressList.map((el, idx) => (
+                          <li key={idx}>
+                            inprogressList{idx}
+                            <ul>
+                              <li>inprogressList content: {el.content}</li>
+                              <li>
+                                inprogressList createDate: {el.createDate}
+                              </li>
+                              <li>inprogressList endDate: {el.endDate}</li>
+                              <li>
+                                inprogressList importance: {el.importance}
+                              </li>
+                            </ul>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  </ul>
+                  <ul>
+                    <li>
+                      doneList
+                      <ul>
+                        {el.workflow.doneList.map((el, idx) => (
+                          <li key={idx}>
+                            doneList{idx}
+                            <ul>
+                              <li>doneList content: {el.content}</li>
+                              <li>doneList createDate: {el.createDate}</li>
+                              <li>doneList endDate: {el.endDate}</li>
+                              <li>doneList importance: {el.importance}</li>
+                            </ul>
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
             <hr />
           </div>
         ))}
