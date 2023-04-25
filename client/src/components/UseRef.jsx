@@ -11,7 +11,6 @@ export default function UseRef() {
   const randomArrIndex = Math.floor(Math.random() * operatorArr.length);
 
   const inputAnswer = useRef();
-
   const checkAnswer = () => {
     let answer = 0;
     if (operatorArr[randomArrIndex] === 'x') {

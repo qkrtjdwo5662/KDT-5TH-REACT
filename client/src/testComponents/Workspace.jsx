@@ -28,7 +28,7 @@ export default function Workspace() {
       <h1>workspace</h1>
       <div></div>
       <ul>
-        {dataArr.map((el, idx) => (
+        {dataArr?.map((el, idx) => (
           <div key={idx}>
             <li>
               workspace{idx}
